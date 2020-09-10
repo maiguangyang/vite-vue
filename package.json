@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "vue": "^3.0.0-rc.1",
@@ -11,9 +12,29 @@
     "vuex": "^4.0.0-beta.4"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
+    "@vue/cli-plugin-eslint": "^4.5.4",
+    "@vue/cli-service": "^4.5.4",
     "@vue/compiler-sfc": "^3.0.0-rc.1",
+    "@vue/eslint-config-airbnb": "^5.1.0",
+    "@vue/eslint-config-typescript": "^5.1.0",
+    "eslint": "^7.8.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-vue": "7.0.0-beta.3",
+    "lint-staged": "^10.3.0",
     "path": "^0.12.7",
     "sass": "^1.26.10",
+    "typescript": "^4.0.2",
     "vite": "^1.0.0-rc.1"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
   }
 }
